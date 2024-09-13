@@ -1,0 +1,49 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Ciclo {
+    private static final Map<String, List<String>> matrix_adj_1 = new HashMap<>();
+    private static final Map<String, List<String>> matrix_adj_2 = new HashMap<>();
+    private static final Map<String, List<String>> matrix_adj_3 = new HashMap<>();
+    private static final Map<String, List<String>> matrix_adj_4 = new HashMap<>();
+    public void setMatrix_adj_1(){
+        matrix_adj_1.put("A", Arrays.asList("B", "C", "F", "G"));
+        matrix_adj_1.put("B", Arrays.asList("A", "C"));
+        matrix_adj_1.put("C", Arrays.asList("A", "B", "C","D"));
+        matrix_adj_1.put("D", Arrays.asList("C","E"));
+        matrix_adj_1.put("E", Arrays.asList("D","F"));
+        matrix_adj_1.put("F", Arrays.asList("A", "E","G"));
+        matrix_adj_1.put("G", Arrays.asList("A", "F"));
+    }
+
+    public void setMatrix_adj_2(){
+        matrix_adj_2.put("A", Arrays.asList("B", "C", "F", "G"));
+        matrix_adj_2.put("B", Arrays.asList("A", "C"));
+        matrix_adj_2.put("C", Arrays.asList("A", "B", "C","D"));
+        matrix_adj_2.put("D", Arrays.asList("C","E"));
+        matrix_adj_2.put("E", Arrays.asList("D","F", "G"));
+        matrix_adj_2.put("F", Arrays.asList("A", "E","G"));
+        matrix_adj_2.put("G", Arrays.asList("A","E" ,"F"));
+    }
+    public void setMatrix_adj_3(){
+        matrix_adj_3.put("A", Arrays.asList("B", "C", "F", "G"));
+        matrix_adj_3.put("B", Arrays.asList("A", "C","D","F"));
+        matrix_adj_3.put("C", Arrays.asList("A", "B", "C","D"));
+        matrix_adj_3.put("D", Arrays.asList("B","C","E","G"));
+        matrix_adj_3.put("E", Arrays.asList("D","F", "G"));
+        matrix_adj_3.put("F", Arrays.asList("A", "E","G"));
+        matrix_adj_3.put("G", Arrays.asList("A","D","E" ,"F"));
+    }
+    public void setMatrix_adj_4(){
+        matrix_adj_4.put("A", Arrays.asList("B", "C", "F", "G"));
+        matrix_adj_4.put("B", Arrays.asList("A", "C","D","F"));
+        matrix_adj_4.put("C", Arrays.asList("A", "B", "C","D"));
+        matrix_adj_4.put("D", Arrays.asList("B","C","E","G"));
+        matrix_adj_4.put("E", Arrays.asList("C","D","F", "G"));
+        matrix_adj_4.put("F", Arrays.asList("A","B", "E","G"));
+        matrix_adj_4.put("G", Arrays.asList("A","D","E" ,"F"));
+    }
+}
+
