@@ -78,11 +78,42 @@ public class Ciclo {
         return true;
     }
 
+    private static boolean BondyChvatal(Map<String, List<String>> graph) {
+        int n = graph.size();
+        for (String u : graph.keySet()) {
+            for (String v : graph.keySet()) {
+                if (!u.equals(v) && !graph.get(u).contains(v)) {
+                    int degreeU = graph.get(u).size();
+                    int degreeV = graph.get(v).size();
+
+                    if (degreeU + degreeV < n) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
 
 
     public static void main(String[] args) {
-        Ore(matrix_adj_3);
+        System.out.println("Dirac - Grafo 1: " + Dirac(matrix_adj_1));
+        System.out.println("Ore - Grafo 1: " + Ore(matrix_adj_1));
+        System.out.println("Bondy & Chvátal - Grafo 1: " + BondyChvatal(matrix_adj_1));
+
+        System.out.println("Dirac - Grafo 2: " + Dirac(matrix_adj_2));
+        System.out.println("Ore - Grafo 2: " + Ore(matrix_adj_2));
+        System.out.println("Bondy & Chvátal - Grafo 2: " + BondyChvatal(matrix_adj_2));
+
+        System.out.println("Dirac - Grafo 3: " + Dirac(matrix_adj_3));
+        System.out.println("Ore - Grafo 3: " + Ore(matrix_adj_3));
+        System.out.println("Bondy & Chvátal - Grafo 3: " + BondyChvatal(matrix_adj_3));
+
+        System.out.println("Dirac - Grafo 4: " + Dirac(matrix_adj_4));
+        System.out.println("Ore - Grafo 4: " + Ore(matrix_adj_4));
+        System.out.println("Bondy & Chvátal - Grafo 4: " + BondyChvatal(matrix_adj_4));
     }
+
 }
 
