@@ -79,20 +79,7 @@ public class Ciclo {
     }
 
     private static boolean BondyChvatal(Map<String, List<String>> graph) {
-        int n = graph.size();
-        for (String u : graph.keySet()) {
-            for (String v : graph.keySet()) {
-                if (!u.equals(v) && !graph.get(u).contains(v)) {
-                    int degreeU = graph.get(u).size();
-                    int degreeV = graph.get(v).size();
-
-                    if (degreeU + degreeV < n) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
+        return Ore(graph);
     }
 
 
