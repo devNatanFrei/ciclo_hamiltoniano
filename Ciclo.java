@@ -95,39 +95,43 @@ public class Ciclo {
 
     // Teorema de Bondy & Chvátal
     private static boolean BondyChvatal(Map<String, List<String>> graph) {
-        Map<String, Set<String>> closure = new HashMap<>();
-        for (String vertex : graph.keySet()) {
-            closure.put(vertex, new HashSet<>(graph.get(vertex)));
-        }
+        if (Ore(graph) && Dirac(graph)){
+            Map<String, Set<String>> closure = new HashMap<>();
+            for (String vertex : graph.keySet()) {
+                closure.put(vertex, new HashSet<>(graph.get(vertex)));
+            }
 
-        boolean changed = true;
-        while (changed) {
-            changed = false;
-            for (String u : closure.keySet()) {
-                for (String v : closure.keySet()) {
-                    if (!u.equals(v) && !closure.get(u).contains(v)) {
-                        Set<String> neighborsU = new HashSet<>(closure.get(u));
-                        Set<String> neighborsV = new HashSet<>(closure.get(v));
-                        if (neighborsU.size() + neighborsV.size() >= graph.size()) {
-                            neighborsU.add(v);
-                            neighborsV.add(u);
-                            closure.put(u, neighborsU);
-                            closure.put(v, neighborsV);
-                            changed = true;
+            boolean changed = true;
+            while (changed) {
+                changed = false;
+                for (String u : closure.keySet()) {
+                    for (String v : closure.keySet()) {
+                        if (!u.equals(v) && !closure.get(u).contains(v)) {
+                            Set<String> neighborsU = new HashSet<>(closure.get(u));
+                            Set<String> neighborsV = new HashSet<>(closure.get(v));
+                            if (neighborsU.size() + neighborsV.size() >= graph.size()) {
+                                neighborsU.add(v);
+                                neighborsV.add(u);
+                                closure.put(u, neighborsU);
+                                closure.put(v, neighborsV);
+                                changed = true;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        for (String u : closure.keySet()) {
-            for (String v : closure.keySet()) {
-                if (!u.equals(v) && !closure.get(u).contains(v)) {
-                    return false;
+            for (String u : closure.keySet()) {
+                for (String v : closure.keySet()) {
+                    if (!u.equals(v) && !closure.get(u).contains(v)) {
+                        return false;
+                    }
                 }
             }
+            return true;
         }
-        return true;
+
+      return false;
     }
 
     public static void main(String[] args) {
