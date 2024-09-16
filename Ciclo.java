@@ -64,9 +64,10 @@ public class Ciclo {
         if (n < 3) {
             return false;
         }
+        double mingDegree = n/2;
 
         for (String v : graph.keySet()) {
-            if (graph.get(v).size() < n / 2) {
+            if (graph.get(v).size() < mingDegree) {
                 return false;
             }
         }
