@@ -95,7 +95,7 @@ public class Ciclo {
 
     // Teorema de Bondy & Chvátal
     private static boolean BondyChvatal(Map<String, List<String>> graph) {
-        if (Ore(graph) && Dirac(graph)){
+
             Map<String, Set<String>> closure = new HashMap<>();
             for (String vertex : graph.keySet()) {
                 closure.put(vertex, new HashSet<>(graph.get(vertex)));
@@ -131,8 +131,8 @@ public class Ciclo {
             return true;
         }
 
-      return false;
-    }
+
+
 
     public static void main(String[] args) {
         System.out.println("Dirac - Grafo 1: " + Dirac(grafo1));
